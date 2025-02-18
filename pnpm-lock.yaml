@@ -10,10 +10,10 @@ importers:
     devDependencies:
       '@sveltejs/adapter-static':
         specifier: ^2.0.3
-        version: 2.0.3(@sveltejs/kit@2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))
+        version: 2.0.3(@sveltejs/kit@2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))
       '@sveltejs/kit':
         specifier: ^2.8.3
-        version: 2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))
+        version: 2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))
       eslint:
         specifier: ^8.31.0
         version: 8.49.0
@@ -48,8 +48,8 @@ importers:
         specifier: ^5.0.4
         version: 5.0.4(postcss-load-config@3.1.4(postcss@8.4.31))(postcss@8.4.31)(sass@1.66.1)(svelte@4.2.1)
       vite:
-        specifier: ^4.5.2
-        version: 4.5.2(sass@1.66.1)
+        specifier: ^4.5.6
+        version: 4.5.6(sass@1.66.1)
 
 packages:
 
@@ -797,6 +797,9 @@ packages:
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
+  picocolors@1.1.1:
+    resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
+
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
@@ -831,6 +834,10 @@ packages:
 
   postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.5.2:
+    resolution: {integrity: sha512-MjOadfU3Ys9KYoX0AdkBlFEF1Vx37uCCeN4ZHnmwm9FfpbsGWMZeBLMmmpY+6Ocqod7mkdZ0DT31OlbsFrLlkA==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -936,6 +943,10 @@ packages:
 
   source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
+    engines: {node: '>=0.10.0'}
+
+  source-map-js@1.2.1:
+    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
   strip-ansi@6.0.1:
@@ -1068,8 +1079,8 @@ packages:
   vfile@5.3.7:
     resolution: {integrity: sha512-r7qlzkgErKjobAmyNIkkSpizsFPYiUPuJb5pNW1RB4JcYVZhs4lIbVqk8XPk033CV/1z8ss5pkax8SuhGpcG8g==}
 
-  vite@4.5.2:
-    resolution: {integrity: sha512-tBCZBNSBbHQkaGyhGCDUGqeo2ph8Fstyp6FMSvTtsXeZSPpSMGlviAOav2hxVTqFcx8Hj/twtWKsMJXNY0xI8w==}
+  vite@4.5.6:
+    resolution: {integrity: sha512-ElBNuVvJKslxcfY2gMmae5IjaKGqCYGicCNZ+8R56sAznobeE3pI9ctzI17cBS/6OJh5YuQNMSN4BP4dRjugBg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1266,13 +1277,13 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@sveltejs/adapter-static@2.0.3(@sveltejs/kit@2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))':
+  '@sveltejs/adapter-static@2.0.3(@sveltejs/kit@2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))':
     dependencies:
-      '@sveltejs/kit': 2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))
+      '@sveltejs/kit': 2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))
 
-  '@sveltejs/kit@2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))':
+  '@sveltejs/kit@2.8.3(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))
       '@types/cookie': 0.6.0
       cookie: 0.6.0
       devalue: 5.1.1
@@ -1286,28 +1297,28 @@ snapshots:
       sirv: 3.0.1
       svelte: 4.2.1
       tiny-glob: 0.2.9
-      vite: 4.5.2(sass@1.66.1)
+      vite: 4.5.6(sass@1.66.1)
 
-  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))':
+  '@sveltejs/vite-plugin-svelte-inspector@1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))
+      '@sveltejs/vite-plugin-svelte': 2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))
       debug: 4.4.0
       svelte: 4.2.1
-      vite: 4.5.2(sass@1.66.1)
+      vite: 4.5.6(sass@1.66.1)
     transitivePeerDependencies:
       - supports-color
 
-  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))':
+  '@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.2(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.2(sass@1.66.1))
+      '@sveltejs/vite-plugin-svelte-inspector': 1.0.4(@sveltejs/vite-plugin-svelte@2.5.3(svelte@4.2.1)(vite@4.5.6(sass@1.66.1)))(svelte@4.2.1)(vite@4.5.6(sass@1.66.1))
       debug: 4.4.0
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.17
       svelte: 4.2.1
       svelte-hmr: 0.15.3(svelte@4.2.1)
-      vite: 4.5.2(sass@1.66.1)
-      vitefu: 0.2.5(vite@4.5.2(sass@1.66.1))
+      vite: 4.5.6(sass@1.66.1)
+      vitefu: 0.2.5(vite@4.5.6(sass@1.66.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -1826,6 +1837,8 @@ snapshots:
 
   picocolors@1.0.0: {}
 
+  picocolors@1.1.1: {}
+
   picomatch@2.3.1: {}
 
   postcss-load-config@3.1.4(postcss@8.4.31):
@@ -1853,6 +1866,12 @@ snapshots:
       nanoid: 3.3.8
       picocolors: 1.0.0
       source-map-js: 1.0.2
+
+  postcss@8.5.2:
+    dependencies:
+      nanoid: 3.3.8
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
 
   prelude-ls@1.2.1: {}
 
@@ -1958,6 +1977,8 @@ snapshots:
       sander: 0.5.1
 
   source-map-js@1.0.2: {}
+
+  source-map-js@1.2.1: {}
 
   strip-ansi@6.0.1:
     dependencies:
@@ -2093,18 +2114,18 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  vite@4.5.2(sass@1.66.1):
+  vite@4.5.6(sass@1.66.1):
     dependencies:
       esbuild: 0.18.20
-      postcss: 8.4.31
+      postcss: 8.5.2
       rollup: 3.29.5
     optionalDependencies:
       fsevents: 2.3.3
       sass: 1.66.1
 
-  vitefu@0.2.5(vite@4.5.2(sass@1.66.1)):
+  vitefu@0.2.5(vite@4.5.6(sass@1.66.1)):
     optionalDependencies:
-      vite: 4.5.2(sass@1.66.1)
+      vite: 4.5.6(sass@1.66.1)
 
   which@2.0.2:
     dependencies:
