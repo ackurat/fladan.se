@@ -14,7 +14,7 @@
 		"@sveltejs/kit": "^2.8.3",
 		"eslint": "^8.31.0",
 		"eslint-config-prettier": "^8.6.0",
-		"eslint-plugin-svelte": "^2.33.2",
+		"eslint-plugin-svelte": "^2.46.1",
 		"mdsvex": "^0.10.6",
 		"prettier": "^2.8.1",
 		"prettier-plugin-svelte": "^2.9.0",
