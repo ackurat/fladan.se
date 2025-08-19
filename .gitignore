@@ -35,3 +35,5 @@ fladan-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Development database contents
+/pg-data

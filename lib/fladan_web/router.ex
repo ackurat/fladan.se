@@ -17,7 +17,7 @@ defmodule FladanWeb.Router do
   scope "/", FladanWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", LandingController, :home
   end
 
   # Other scopes may use custom stacks.
