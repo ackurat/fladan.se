@@ -51,7 +51,8 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host = System.get_env("PHX_HOST") || "example.com"
+  host = System.get_env("PHX_HOST") || "fladan.se"
+  gigalixir_host = System.get_env("GIG_HOST") || "fladan.se"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :fladan, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
@@ -68,7 +69,7 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base,
     force_ssl: [rewrite_on: [:x_forwarded_proto]],
-    check_origin: ["fladan.se", "www.fladan.se", "https://fladan.gigalixirapp.com/"]
+    check_origin: [host, "www." <> host, gigalixir_host]
 
   # ## SSL Support
   #
