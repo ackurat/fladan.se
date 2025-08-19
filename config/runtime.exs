@@ -31,7 +31,8 @@ if config_env() == :prod do
   maybe_ipv6 = if System.get_env("ECTO_IPV6") in ~w(true 1), do: [:inet6], else: []
 
   config :fladan, Fladan.Repo,
-    # ssl: true,
+    ssl: true,
+    ssl_opts: [verify: :verify_none],
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
     # For machines with several cores, consider starting multiple pools of `pool_size`
@@ -65,7 +66,9 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: port
     ],
-    secret_key_base: secret_key_base
+    secret_key_base: secret_key_base,
+    force_ssl: [rewrite_on: [:x_forwarded_proto]],
+    check_origin: ["fladan.se", "www.fladan.se", "https://fladan.gigalixirapp.com/"]
 
   # ## SSL Support
   #
