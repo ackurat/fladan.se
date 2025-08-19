@@ -1,4 +1,4 @@
-defmodule FladanWeb.PageController do
+defmodule FladanWeb.LandingController do
   use FladanWeb, :controller
 
   def home(conn, _params) do
