@@ -8,13 +8,15 @@ defmodule Fladan.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {
+        Ecto.Migrator,
+        repos: Application.fetch_env!(:fladan, :ecto_repos),
+        skip: Application.fetch_env!(:fladan, :skip_migration)
+      },
       FladanWeb.Telemetry,
       Fladan.Repo,
       {DNSCluster, query: Application.get_env(:fladan, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Fladan.PubSub},
-      # Start a worker by calling: Fladan.Worker.start_link(arg)
-      # {Fladan.Worker, arg},
-      # Start to serve requests, typically the last entry
       FladanWeb.Endpoint
     ]
 

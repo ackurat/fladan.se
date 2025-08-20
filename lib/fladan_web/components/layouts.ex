@@ -35,40 +35,38 @@ defmodule FladanWeb.Layouts do
 
   def app(assigns) do
     ~H"""
-    <header class="navbar px-4 sm:px-6 lg:px-8">
-      <div class="flex-1">
-        <a href="/" class="flex-1 flex w-fit items-center gap-2">
-          <img src={~p"/images/logo.svg"} width="36" />
-          <span class="text-sm font-semibold">v{Application.spec(:phoenix, :vsn)}</span>
-        </a>
-      </div>
-      <div class="flex-none">
-        <ul class="flex flex-column px-1 space-x-4 items-center">
-          <li>
-            <a href="https://phoenixframework.org/" class="btn btn-ghost">Website</a>
-          </li>
-          <li>
-            <a href="https://github.com/phoenixframework/phoenix" class="btn btn-ghost">GitHub</a>
-          </li>
-          <li>
-            <.theme_toggle />
-          </li>
-          <li>
-            <a href="https://hexdocs.pm/phoenix/overview.html" class="btn btn-primary">
-              Get Started <span aria-hidden="true">&rarr;</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </header>
-
-    <main class="px-4 py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl space-y-4">
-        {render_slot(@inner_block)}
-      </div>
-    </main>
-
     <.flash_group flash={@flash} />
+    <div class="flex flex-col min-h-screen bg-base-100">
+      <header class="w-full py-6 px-8 flex justify-between items-center border-b border-base-200">
+        <h1 class="text-2xl font-bold tracking-tight">Fladan</h1>
+        <nav class="flex gap-4">
+          <button class="btn btn-outline">Archive</button>
+          <button class="btn btn-outline">Tags</button>
+          <button class="btn btn-primary">Login</button>
+        </nav>
+        <.theme_toggle />
+      </header>
+
+      <main class="flex-1 flex flex-col lg:flex-row gap-8 px-4 py-10 lg:px-16 lg:py-16">
+        <section class="flex-1 max-w-2xl mx-auto">
+          {render_slot(@inner_block)}
+        </section>
+        <aside class="w-full lg:w-[400px] xl:w-[480px] flex-shrink-0">
+          <h2 class="text-xl font-semibold mb-6">@fladagram</h2>
+          <div class="rounded-box bg-base-200 p-4 shadow flex items-center justify-center min-h-[400px]">
+            <iframe
+              src="https://www.instagram.com/fladagram/embed"
+              width="500"
+              height="500"
+              frameborder="0"
+              scrolling="no"
+              allowtransparency="true"
+              class="rounded-box border border-base-300"
+            ></iframe>
+          </div>
+        </aside>
+      </main>
+    </div>
     """
   end
 

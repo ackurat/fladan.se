@@ -2,6 +2,7 @@ defmodule FladanWeb.LandingController do
   use FladanWeb, :controller
 
   def home(conn, _params) do
-    render(conn, :home)
+    posts = Fladan.Posts.list_posts()
+    render(conn, :home, posts: posts)
   end
 end

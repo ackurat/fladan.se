@@ -1,15 +1,9 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
-
-# General application configuration
 import Config
 
 config :fladan,
   ecto_repos: [Fladan.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  skip_migration: false
 
 # Configures the endpoint
 config :fladan, FladanWeb.Endpoint,
@@ -31,7 +25,6 @@ config :fladan, FladanWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :fladan, Fladan.Mailer, adapter: Swoosh.Adapters.Local
 
-# Configure esbuild (the version is required)
 config :esbuild,
   version: "0.25.4",
   fladan: [
@@ -41,7 +34,6 @@ config :esbuild,
     env: %{"NODE_PATH" => [Path.expand("../deps", __DIR__), Mix.Project.build_path()]}
   ]
 
-# Configure tailwind (the version is required)
 config :tailwind,
   version: "4.1.7",
   fladan: [
@@ -52,14 +44,10 @@ config :tailwind,
     cd: Path.expand("..", __DIR__)
   ]
 
-# Configures Elixir's Logger
 config :logger, :default_formatter,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
