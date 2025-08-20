@@ -1,0 +1,11 @@
+<Layouts.app flash={@flash}>
+  <article class="prose max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-4"><%= @post.title %></h1>
+    <div class="mb-2 text-base-content/60 text-sm">
+      <%= @post.published_at && Calendar.strftime(@post.published_at, "%B %d, %Y") %>
+    </div>
+    <div class="mt-6">
+      <%= @post.content %>
+    </div>
+  </article>
+</Layouts.app>

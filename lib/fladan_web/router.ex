@@ -18,6 +18,7 @@ defmodule FladanWeb.Router do
     pipe_through :browser
 
     get "/", LandingController, :home
+    get "/posts/:slug", LandingController, :show
   end
 
   # Other scopes may use custom stacks.

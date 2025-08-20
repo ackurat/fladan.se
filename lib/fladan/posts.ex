@@ -21,4 +21,8 @@ defmodule Fladan.Posts do
   def list_posts do
     Fladan.Repo.all(Fladan.Posts)
   end
+
+  def get_post(slug) do
+    Fladan.Repo.get_by(Fladan.Posts, slug: slug)
+  end
 end
