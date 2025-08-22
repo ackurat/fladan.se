@@ -3,22 +3,24 @@
   <ul class="space-y-6">
     <%= for post <- @posts do %>
       <li>
-        <a href={"/posts/" <> post.slug} class="block p-6 rounded-box bg-base-200 shadow hover:bg-base-300 transition">
-          <h3 class="font-bold text-lg mb-2">
-            <%= post.title %>
-          </h3>
-          <p class="text-base-content/80"><%= String.slice(post.content, 0, 200) %><%= if String.length(post.content) > 200, do: "…" %></p>
+        <div class="p-6 rounded-box bg-base-200 shadow hover:bg-base-300 transition">
+          <a href={"/posts/" <> post.slug} class="block">
+            <h3 class="font-bold text-lg mb-2">
+              <%= post.title %>
+            </h3>
+            <p class="text-base-content/80"><%= String.slice(post.content, 0, 200) %><%= if String.length(post.content) > 200, do: "…" %></p>
+          </a>
           <div class="flex items-center mt-3 mb-1">
             <%= if Enum.any?(post.tags) do %>
               <div class="flex flex-wrap gap-1">
                 <%= for tag <- post.tags do %>
-                  <span class="badge badge-sm badge-outline"><%= tag.name %></span>
+                  <a href={"/tags/" <> tag.slug} class="badge badge-sm badge-outline hover:badge-primary"><%= tag.name %></a>
                 <% end %>
               </div>
             <% end %>
           </div>
           <span class="text-xs text-base-content/60 mt-1 block"><%= post.published_at |> Calendar.strftime("%B %d, %Y") %></span>
-        </a>
+        </div>
       </li>
     <% end %>
   </ul>

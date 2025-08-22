@@ -28,7 +28,7 @@ defmodule FladanWeb.Layouts do
         <nav class="flex gap-4">
           <a href="/" class="btn btn-outline">Home</a>
           <a href="/archive" class="btn btn-primary">Archive</a>
-          <button class="btn btn-outline">Tags</button>
+          <a href="/tags" class="btn btn-primary">Tags</a>
           <button class="btn btn-outline">Login</button>
         </nav>
         <.theme_toggle />

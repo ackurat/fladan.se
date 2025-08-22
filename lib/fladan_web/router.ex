@@ -20,6 +20,8 @@ defmodule FladanWeb.Router do
     get "/", LandingController, :home
     get "/archive", LandingController, :archive
     get "/posts/:slug", LandingController, :show
+    get "/tags", LandingController, :tags
+    get "/tags/:slug", LandingController, :tag_show
   end
 
   # Other scopes may use custom stacks.
