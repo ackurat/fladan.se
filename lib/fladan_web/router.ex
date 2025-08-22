@@ -18,6 +18,7 @@ defmodule FladanWeb.Router do
     pipe_through :browser
 
     get "/", LandingController, :home
+    get "/archive", LandingController, :archive
     get "/posts/:slug", LandingController, :show
   end
 

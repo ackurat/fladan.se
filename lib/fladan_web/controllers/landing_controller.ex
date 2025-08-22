@@ -6,6 +6,11 @@ defmodule FladanWeb.LandingController do
     render(conn, :home, posts: posts)
   end
 
+  def archive(conn, _params) do
+    posts = Fladan.News.list_posts()
+    render(conn, :archive, posts: posts)
+  end
+
   def show(conn, %{"slug" => slug}) do
     case Fladan.News.get_post_by_slug(slug) do
       nil ->

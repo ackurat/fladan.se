@@ -19,6 +19,38 @@ defmodule FladanWeb.Layouts do
 
   slot :inner_block, required: true
 
+  def centered(assigns) do
+    ~H"""
+    <.flash_group flash={@flash} />
+    <div class="flex flex-col min-h-screen bg-base-100">
+      <header class="w-full py-6 px-8 flex justify-between items-center border-b border-base-200">
+        <h1 class="text-2xl font-bold tracking-tight">Fladan</h1>
+        <nav class="flex gap-4">
+          <a href="/" class="btn btn-outline">Home</a>
+          <a href="/archive" class="btn btn-primary">Archive</a>
+          <button class="btn btn-outline">Tags</button>
+          <button class="btn btn-outline">Login</button>
+        </nav>
+        <.theme_toggle />
+      </header>
+
+      <main class="flex-1 flex flex-col px-4 py-10 lg:px-16 lg:py-16">
+        <section class="flex-1 max-w-3xl mx-auto w-full">
+          {render_slot(@inner_block)}
+        </section>
+      </main>
+    </div>
+    """
+  end
+
+  attr :flash, :map, required: true, doc: "the map of flash messages"
+
+  attr :current_scope, :map,
+    default: nil,
+    doc: "the current [scope](https://hexdocs.pm/phoenix/scopes.html)"
+
+  slot :inner_block, required: true
+
   def app(assigns) do
     ~H"""
     <.flash_group flash={@flash} />
@@ -26,9 +58,10 @@ defmodule FladanWeb.Layouts do
       <header class="w-full py-6 px-8 flex justify-between items-center border-b border-base-200">
         <h1 class="text-2xl font-bold tracking-tight">Fladan</h1>
         <nav class="flex gap-4">
-          <button class="btn btn-outline">Archive</button>
+          <a href="/" class="btn btn-primary">Home</a>
+          <a href="/archive" class="btn btn-outline">Archive</a>
           <button class="btn btn-outline">Tags</button>
-          <button class="btn btn-primary">Login</button>
+          <button class="btn btn-outline">Login</button>
         </nav>
         <.theme_toggle />
       </header>
