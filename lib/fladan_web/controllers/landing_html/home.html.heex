@@ -1,4 +1,4 @@
-<Layouts.app flash={@flash}>
+<Layouts.app flash={@flash} active_page={:home}>
   <h2 class="text-xl font-semibold mb-6">News</h2>
   <ul class="space-y-6">
     <%= for post <- @posts do %>
