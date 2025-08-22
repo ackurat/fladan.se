@@ -1,0 +1,31 @@
+<Layouts.centered flash={@flash} active_page={:tags}>
+  <div class="mb-8">
+    <a href="/tags" class="inline-block mb-4 px-4 py-2 rounded bg-base-200 hover:bg-base-300 text-base-content transition font-medium">&larr; All Tags</a>
+    <h2 class="text-2xl font-semibold">Posts tagged with: <span class="text-primary"><%= @tag.name %></span></h2>
+  </div>
+  
+  <%= if Enum.empty?(@posts) do %>
+    <p class="text-base-content/70 italic">No posts found with this tag.</p>
+  <% else %>
+    <ul class="space-y-6">
+      <%= for post <- @posts do %>
+        <li>
+          <a href={"/posts/" <> post.slug} class="block p-6 rounded-box bg-base-200 shadow hover:bg-base-300 transition">
+            <h3 class="font-bold text-lg mb-2">
+              <%= post.title %>
+            </h3>
+            <p class="text-base-content/80"><%= String.slice(post.content, 0, 200) %><%= if String.length(post.content) > 200, do: "…" %></p>
+            <div class="flex items-center mt-3 mb-1">
+              <div class="flex flex-wrap gap-1">
+                <%= for tag <- post.tags do %>
+                  <span class={if tag.id == @tag.id, do: "badge badge-sm badge-primary", else: "badge badge-sm badge-outline"}><%= tag.name %></span>
+                <% end %>
+              </div>
+            </div>
+            <span class="text-xs text-base-content/60 mt-1 block"><%= post.published_at |> Calendar.strftime("%B %d, %Y") %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</Layouts.centered>

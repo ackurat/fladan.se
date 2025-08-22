@@ -69,6 +69,25 @@ defmodule Fladan.News do
   end
 
   @doc """
+  Gets a single tag by slug.
+  """
+  def get_tag_by_slug(slug) do
+    Repo.get_by(Tag, slug: slug) |> Repo.preload(:posts)
+  end
+
+  @doc """
+  Gets posts for a specific tag.
+  """
+  def get_posts_by_tag(tag) do
+    query = from p in Post,
+      join: t in "posts_tags", on: t.post_id == p.id,
+      where: t.tag_id == ^tag.id,
+      order_by: [desc: p.published_at]
+
+    Repo.all(query) |> Repo.preload(:tags)
+  end
+
+  @doc """
   Creates a tag.
   """
   def create_tag(attrs \\ %{}) do

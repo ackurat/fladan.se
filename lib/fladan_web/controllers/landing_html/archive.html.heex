@@ -1,5 +1,5 @@
-<Layouts.app flash={@flash} active_page={:home}>
-  <h2 class="text-xl font-semibold mb-6">News</h2>
+<Layouts.centered flash={@flash} active_page={:archive}>
+  <h2 class="text-2xl font-semibold mb-8">Archive</h2>
   <ul class="space-y-6">
     <%= for post <- @posts do %>
       <li>
@@ -14,9 +14,7 @@
             <%= if Enum.any?(post.tags) do %>
               <div class="flex flex-wrap gap-1">
                 <%= for tag <- post.tags do %>
-                  <a href={"/tags/" <> tag.slug} class="badge badge-sm badge-outline">
-                    <%= tag.name %>
-                  </a>
+                  <a href={"/tags/" <> tag.slug} class="badge badge-sm badge-outline hover:badge-primary"><%= tag.name %></a>
                 <% end %>
               </div>
             <% end %>
@@ -26,4 +24,4 @@
       </li>
     <% end %>
   </ul>
-</Layouts.app>
+</Layouts.centered>

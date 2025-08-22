@@ -11,11 +11,67 @@ defmodule FladanWeb.Layouts do
   # and other static content.
   embed_templates "layouts/*"
 
+  @doc """
+  Navigation component with active page highlighting.
+
+  ## Examples
+
+      <.nav active_page={:home} />
+      <.nav active_page={:archive} />
+  """
+  attr :active_page, :atom, default: nil, doc: "the active page to highlight"
+
+  def nav(assigns) do
+    ~H"""
+    <nav class="flex gap-4">
+      <a href="/" class={nav_link_class(@active_page, :home)}>Home</a>
+      <a href="/archive" class={nav_link_class(@active_page, :archive)}>Archive</a>
+      <a href="/tags" class={nav_link_class(@active_page, :tags)}>Tags</a>
+      <button class="btn btn-outline">Login</button>
+    </nav>
+    """
+  end
+
+  defp nav_link_class(active_page, page) do
+    if active_page == page, do: "btn btn-primary", else: "btn btn-outline"
+  end
+
   attr :flash, :map, required: true, doc: "the map of flash messages"
 
   attr :current_scope, :map,
     default: nil,
     doc: "the current [scope](https://hexdocs.pm/phoenix/scopes.html)"
+
+  slot :inner_block, required: true
+
+  attr :active_page, :atom, default: nil, doc: "the active page to highlight in the navigation"
+
+  def centered(assigns) do
+    ~H"""
+    <.flash_group flash={@flash} />
+    <div class="flex flex-col min-h-screen bg-base-100">
+      <header class="w-full py-6 px-8 flex justify-between items-center border-b border-base-200">
+        <h1 class="text-2xl font-bold tracking-tight">Fladan</h1>
+        <.nav active_page={@active_page} />
+        <.theme_toggle />
+      </header>
+
+      <main class="flex-1 flex flex-col px-4 py-10 lg:px-16 lg:py-16">
+        <section class="flex-1 max-w-3xl mx-auto w-full">
+          {render_slot(@inner_block)}
+        </section>
+      </main>
+    </div>
+    """
+  end
+
+  attr :flash, :map, required: true, doc: "the map of flash messages"
+
+  attr :current_scope, :map,
+    default: nil,
+    doc: "the current [scope](https://hexdocs.pm/phoenix/scopes.html)"
+
+  attr :active_page, :atom, default: nil, doc: "the active page to highlight in the navigation"
 
   slot :inner_block, required: true
 
@@ -25,11 +81,7 @@ defmodule FladanWeb.Layouts do
     <div class="flex flex-col min-h-screen bg-base-100">
       <header class="w-full py-6 px-8 flex justify-between items-center border-b border-base-200">
         <h1 class="text-2xl font-bold tracking-tight">Fladan</h1>
-        <nav class="flex gap-4">
-          <button class="btn btn-outline">Archive</button>
-          <button class="btn btn-outline">Tags</button>
-          <button class="btn btn-primary">Login</button>
-        </nav>
+        <.nav active_page={@active_page} />
         <.theme_toggle />
       </header>
 

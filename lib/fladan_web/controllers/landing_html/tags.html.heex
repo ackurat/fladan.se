@@ -1,0 +1,15 @@
+<Layouts.centered flash={@flash} active_page={:tags}>
+  <h2 class="text-2xl font-semibold mb-8">Tags</h2>
+  
+  <div class="flex flex-wrap gap-3">
+    <%= for tag <- @tags do %>
+      <a 
+        href={"/tags/" <> tag.slug} 
+        class="px-4 py-2 text-base rounded-box bg-base-200 shadow hover:bg-base-300 transition flex items-center gap-2"
+      >
+        <span class="font-medium"><%= tag.name %></span>
+        <span class="badge badge-sm"><%= length(tag.posts) %></span>
+      </a>
+    <% end %>
+  </div>
+</Layouts.centered>

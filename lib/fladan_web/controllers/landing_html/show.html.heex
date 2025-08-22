@@ -1,4 +1,4 @@
-<Layouts.app flash={@flash}>
+<Layouts.centered flash={@flash}>
   <article class="prose max-w-2xl mx-auto">
     <a href="/" class="inline-block mb-6 px-4 py-2 rounded bg-base-200 hover:bg-base-300 text-base-content transition font-medium">&larr; Back</a>
     <h1 class="text-3xl font-bold mb-4"><%= @post.title %></h1>
@@ -20,4 +20,4 @@
       <%= @post.content %>
     </div>
   </article>
-</Layouts.app>
+</Layouts.centered>
