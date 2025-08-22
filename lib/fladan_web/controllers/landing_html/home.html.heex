@@ -8,7 +8,16 @@
             <%= post.title %>
           </h3>
           <p class="text-base-content/80"><%= String.slice(post.content, 0, 200) %><%= if String.length(post.content) > 200, do: "…" %></p>
-          <span class="text-xs text-base-content/60 mt-2 block"><%= post.published_at |> Calendar.strftime("%B %d, %Y") %></span>
+          <div class="flex items-center mt-3 mb-1">
+            <%= if Enum.any?(post.tags) do %>
+              <div class="flex flex-wrap gap-1">
+                <%= for tag <- post.tags do %>
+                  <span class="badge badge-sm badge-outline"><%= tag.name %></span>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <span class="text-xs text-base-content/60 mt-1 block"><%= post.published_at |> Calendar.strftime("%B %d, %Y") %></span>
         </a>
       </li>
     <% end %>
