@@ -27,7 +27,6 @@ defmodule FladanWeb.Layouts do
       <a href="/" class={nav_link_class(@active_page, :home)}>Home</a>
       <a href="/archive" class={nav_link_class(@active_page, :archive)}>Archive</a>
       <a href="/tags" class={nav_link_class(@active_page, :tags)}>Tags</a>
-      <button class="btn btn-outline">Login</button>
     </nav>
     """
   end
@@ -100,7 +99,8 @@ defmodule FladanWeb.Layouts do
               scrolling="no"
               allowtransparency="true"
               class="rounded-box border border-base-300"
-            ></iframe>
+            >
+            </iframe>
           </div>
         </aside>
       </main>
