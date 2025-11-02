@@ -35,25 +35,25 @@ jobs:
       - name: Run tests
         run: mix test
 
-  # deploy:
-  #   needs: build
-  #   if: github.ref == 'refs/heads/main'
-  #   runs-on: ubuntu-24.04
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
 
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #       with:
-  #         ref: main
-  #         fetch-depth: 0
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
-  #     - uses: actions/setup-python@v2
-  #       with:
-  #         python-version: 3.8.1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8.1
 
-  #     - uses: mhanberg/gigalixir-action@7c4c09ec2c3562eded85b711fd735eb34f8001e9
-  #       with:
-  #         GIGALIXIR_APP: fladan
-  #         GIGALIXIR_CLEAN: true
-  #         GIGALIXIR_USERNAME: ${{ secrets.GIGALIXIR_USERNAME }}
-  #         GIGALIXIR_PASSWORD: ${{ secrets.GIGALIXIR_PASSWORD }}
-  #         MIGRATIONS: false
+      - uses: mhanberg/gigalixir-action@7c4c09ec2c3562eded85b711fd735eb34f8001e9
+        with:
+          GIGALIXIR_APP: fladan
+          GIGALIXIR_CLEAN: true
+          GIGALIXIR_USERNAME: ${{ secrets.GIGALIXIR_USERNAME }}
+          GIGALIXIR_PASSWORD: ${{ secrets.GIGALIXIR_PASSWORD }}
+          MIGRATIONS: false
