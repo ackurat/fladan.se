@@ -48,7 +48,7 @@ jobs:
 
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.8.1
+          python-version: 3.14.0
 
       - uses: mhanberg/gigalixir-action@7c4c09ec2c3562eded85b711fd735eb34f8001e9
         with:
