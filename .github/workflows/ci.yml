@@ -22,11 +22,12 @@ jobs:
           elixir-version: "1.18"
           otp-version: "27.0"
       - name: Restore dependencies cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
-          path: deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ runner.os }}-mix-
+          path: |
+            deps
+            _build
+          key: mix-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mix.lock') }}
       - name: Install dependencies
         run: mix deps.get
       - name: Start DB
